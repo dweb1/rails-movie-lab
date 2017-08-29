@@ -34,6 +34,8 @@ class FilmsController < ApplicationController
 
   private
   def film_params
-    params.require(:film).permit(:title, :year, :synopsis, :picture, :genre)
+    film = params.require(:film).permit(:title, :year, :synopsis, :picture, :genre)
+    user_id = { user_id: current_user.id }
+    film.merge(user_id)
   end
 end
