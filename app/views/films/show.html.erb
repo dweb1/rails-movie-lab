@@ -4,3 +4,6 @@
 
 <p><strong>Genre: </strong><%= @film.genre%> </p>
 <p> <strong>Synopsis: </strong> <%= @film.synopsis%> </p>
+
+<%= button_to "Edit this film", edit_film_path(@film), method: :get %>
+<%= button_to "Delete this film", film_path(@film), method: :delete %>
