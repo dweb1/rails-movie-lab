@@ -1,0 +1,25 @@
+<h2>Edit Film</h2>
+
+<%= form_for @film do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <br/>
+
+  <%= f.label :synopsis %>
+  <%= f.text_area :synopsis %>
+  <br/>
+
+  <%= f.label :genre %>
+  <%= f.text_field :genre %>
+  <br/>
+
+  <%= f.label :year %>
+  <%= f.number_field :year %>
+  <br/>
+
+  <%= f.label :picture %>
+  <%= f.text_field :picture %>
+  <br/>
+
+  <%= f.submit "Edit this film!"%>
+<% end %>
