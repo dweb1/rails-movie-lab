@@ -10,18 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170829210020) do
+ActiveRecord::Schema.define(version: 20170829232702) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "favorites", force: :cascade do |t|
-    t.bigint "users_id"
-    t.bigint "films_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["films_id"], name: "index_favorites_on_films_id"
-    t.index ["users_id"], name: "index_favorites_on_users_id"
+    t.bigint "user_id"
+    t.bigint "film_id"
+    t.index ["film_id"], name: "index_favorites_on_film_id"
+    t.index ["user_id"], name: "index_favorites_on_user_id"
   end
 
   create_table "films", force: :cascade do |t|
@@ -52,6 +50,6 @@ ActiveRecord::Schema.define(version: 20170829210020) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "favorites", "films", column: "films_id"
-  add_foreign_key "favorites", "users", column: "users_id"
+  add_foreign_key "favorites", "films"
+  add_foreign_key "favorites", "users"
 end

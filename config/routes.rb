@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   get 'users/show', to: 'users#show'
 
+  resources :favorites 
+  
   devise_for :users
   root to: 'films#index'
   resources :films
